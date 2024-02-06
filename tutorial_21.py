@@ -24,17 +24,25 @@ bus_capacity[bus_choice]= bus_capacity[bus_choice] - 1
 bus_money[bus_choice] += charge
 #Adjusts lists to take ticket away.
 
+return_choice = input("Would you like to have a ticket for a return journey? [y/n]")
+
+if return_choice == "y":
+    returnbus_choice = int(input("\nChoose your Bus. Please enter 10:00 [1],12:00 [3],14:00 [5] or 16:00 [7]: "))
+elif return_choice == "n":
+    print("Enjoy your trip.")
+else:
+    print("Not a valid answer")
+
+print("Returning bus time chosen:",bus_time[returnbus_choice])
+
+if returnbus_choice not in [1, 3, 5, 7]:
+    print("Not a valid bus to KL City Centre.")
+
+bus_capacity[returnbus_choice]= bus_capacity[returnbus_choice] - 1
+bus_money[returnbus_choice] += charge
+
+
 print("\nUpdated Lists")
 print("Bus Times",bus_time)
 print("Bus capacity", bus_capacity)
 print("Bus money", bus_money)
-# Printed to show you how the lists have changed.
-
-return_choice = input("Would you like to have a ticket for a return journey? [y/n]")
-
-if return_choice == "y":
-    bus_choice = int(input("\nChoose your Bus. Please enter 09:00 [0],11:00 [2],13:00 [4] or 15:00 [6]: "))
-elif return_choice == "n":
-    print("Enjoy your trip.")
-else 
-
